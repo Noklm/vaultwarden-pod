@@ -25,3 +25,14 @@ podman secret vaultwarden_domain ./domain_secret.txt
 ```sh
 ./run.sh
 ```
+
+## Backup & Restore
+[To back up data](https://github.com/dani-garcia/vaultwarden/wiki/Backing-up-your-vault), export vaultwarden volume:
+```sh
+podman volume export vw-data --output "$(date +"%y%m%d")_vw-data.tar"
+```
+
+Restore with volume import:
+```sh
+podman volume import vw-data 241228_vw-data.tar
+```
